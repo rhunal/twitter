@@ -1,0 +1,21 @@
+<h1>Home Page</h1>
+
+<%= form_for @tweet, url: home_create_tweet_path do |form| %>
+  <%= form.text_area :description %>
+  <%= form.submit 'Post a Tweet' %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Tweet</th>
+    </tr>
+  </thead>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <td><%= tweet.user.email %></td>
+      <td><%= tweet.description %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <p>
+    <%= user.email %>
+    <% if current_user.is_following?(user.id) %>
+      <%= link_to 'Unfollow', unfollow_user_path(user), method: :delete %>
+    <% else %>
+      <%= link_to 'Follow', follow_user_path(user), method: :post %>
+    <% end %>
+  </p>
+<% end %>
